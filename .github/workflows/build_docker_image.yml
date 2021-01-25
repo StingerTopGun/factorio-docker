@@ -25,3 +25,6 @@ jobs:
 
       - name: Build the latest Docker image
         run: docker build ./1.1/ --tag stingertopgun/factorio-docker:latest
+      
+      - name: Recreate live container
+        run: docker-compose -f /factorio_runtime/docker-compose.yml pull; docker-compose -f /factorio_runtime/docker-compose.yml up -d
